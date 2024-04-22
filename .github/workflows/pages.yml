@@ -37,7 +37,7 @@ jobs:
         run: |
           mkdir -p ${DIST_ROOT_DIR}
 
-      - name: Download latest hugo
+      - name: Download latest Hugo
         run: scripts/download_latest_hugo_deb.sh
 
       - name: Generate Debian Repo files
@@ -58,6 +58,51 @@ jobs:
         with:
           path: _site
 
+  test:
+    name: Test the Repo
+    strategy:
+      matrix:
+        os: ['ubuntu-20.04', 'ubuntu-22.04']
+    runs-on: ${{ matrix.os }}
+    needs: build
+
+    steps:
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+      - uses: actions/download-artifact@v4
+      - name: Uncompress Artifact
+        run: |
+          tar xvf github-pages/artifact.tar
+          rm github-pages/artifact.tar
+          rmdir github-pages
+
+      - name: Ensure no Hugo Package in Default Repo
+        run: |
+          sudo rm /etc/apt/sources.list
+          sudo rm -f /etc/apt/sources.list.d/*
+          sudo apt-get update
+          ! apt-cache show hugo
+      - name: Ensure no Hugo installed
+        run: |
+          ! type hugo
+
+      - name: Add the APT Repo
+        run: echo "deb [signed-by=/etc/apt/keyrings/hugo.gpg] http://localhost:9000 latest main" | sudo tee /etc/apt/sources.list.d/hugo.list
+      - name: Trust the Key
+        run: sudo cp ${PWD}/signing-key /etc/apt/keyrings/hugo.gpg
+
+      - name: Install Hugo
+        run: |
+          python -m http.server 9000 &
+          while ! nc -z localhost 9000; do
+              sleep 0.5
+          done
+          sudo apt-get update
+          sudo apt-get install -y hugo
+      - name: Test running Hugo
+        run: hugo version
+
   deploy:
     name: Deploy Pages
     if: github.ref == 'refs/heads/master'
@@ -68,7 +113,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
+    needs: [build, test]
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

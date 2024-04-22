@@ -36,12 +36,7 @@ Pages][].
 
 Source code is available on [GitHub][].
 
-To report a bug, visit the [issue tracker][].
-
-To run test, run `npm run test-all`. To display test coverage, run `npm run coverage`. To build for
-production, run `npm pack`. To build the documentation, run `npm run doc`.
-
-To send your contribution, open a [pull request][].
+To report a bug, visit the [issue tracker][]. To send your contribution, open a [pull request][].
 
 ## License
 

@@ -24,16 +24,45 @@ on:
   schedule:
     - cron: '0 1 * * *'
 
-env:
-  DIST_ROOT_DIR: _site/dists/latest
-
 jobs:
-  build:
-    name: Build Pages
+  build_website:
+    name: Build Website
     runs-on: ubuntu-22.04
+    # Ironically, to avoid cycled self-dependency, use a Hugo installation from a different source
+    # here to build the website.
+    container: hugomods/hugo:reg-git-0.125.3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Build the site
+        working-directory: website
+        run: |
+          git config --global --add safe.directory $GITHUB_WORKSPACE
+          ./build-website.sh
+
+      - name: Upload site
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: website
+          path: website/public
+          if-no-files-found: error
+
+  build:
+    name: Build Repo
+    runs-on: ubuntu-22.04
+    needs: build_website
+    env:
+      DIST_ROOT_DIR: _site/dists/latest
 
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4.1.6
+        with:
+          name: website
+          path: _site
 
       - name: Create the dist root directory
         run: |
@@ -70,12 +99,16 @@ jobs:
     needs: build
 
     steps:
+      # We don't build the website with the Hugo installation from this step, because we intend to
+      # test with the final version of the whole repository in case any website building part
+      # interferes with the repo.
       - uses: actions/download-artifact@v4.1.6
+        with:
+          name: github-pages
       - name: Decompress Artifact
         run: |
-          tar xvf github-pages/artifact.tar
-          rm github-pages/artifact.tar
-          rmdir github-pages
+          tar xvf artifact.tar
+          rm artifact.tar
 
       - name: Install Python and NetCat
         run: |

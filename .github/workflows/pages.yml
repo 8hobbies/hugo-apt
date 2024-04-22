@@ -49,7 +49,6 @@ jobs:
       - name: Sign Release
         run: |
           gpg -u '8 Hobbies Signing Bot <contact@8hob.io>' -a -s --clearsign --output ${DIST_ROOT_DIR}/InRelease ${DIST_ROOT_DIR}/Release
-          rm ${DIST_ROOT_DIR}/Release
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3.0.1

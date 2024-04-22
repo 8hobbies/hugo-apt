@@ -22,6 +22,9 @@ on:
   pull_request:
     branches: ["master"]
 
+env:
+  DIST_ROOT_DIR: _site/dists/latest
+
 jobs:
   build:
     name: Build Pages

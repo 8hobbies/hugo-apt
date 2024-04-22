@@ -2,12 +2,13 @@
 
 # Generate Packages.gz and Release files.
 
-cd ${DIST_ROOT_DIR}
+set -e
 
-cd main/binary-amd64
-apt-ftparchive packages . > Packages
-gzip -k --best Packages
-cd ../..
+cd _site
+apt-ftparchive packages "${DIST_ROOT_DIR#*/}/main/binary-amd64" > "${DIST_ROOT_DIR#*/}/main/binary-amd64/Packages"
+gzip -k --best "${DIST_ROOT_DIR#*/}/main/binary-amd64/Packages"
+
+cd "../${DIST_ROOT_DIR}"
 
 apt-ftparchive \
     -o APT::FTPArchive::Release::Origin="8 Hobbies" \

@@ -60,46 +60,57 @@ jobs:
 
   test:
     name: Test the Repo
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
-        os: ['ubuntu-20.04', 'ubuntu-22.04']
-    runs-on: ${{ matrix.os }}
+         os: ['debian:11', 'debian:12', 'ubuntu:20.04', 'ubuntu:22.04', 'ubuntu:24.04']
+    container: ${{ matrix.os }}
     needs: build
 
     steps:
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.12
       - uses: actions/download-artifact@v4
-      - name: Uncompress Artifact
+      - name: Decompress Artifact
         run: |
           tar xvf github-pages/artifact.tar
           rm github-pages/artifact.tar
           rmdir github-pages
 
+      - name: Install Python and NetCat
+        run: |
+          apt-get update
+          apt-get install -y python3 netcat-openbsd
+
       - name: Ensure no Hugo Package in Default Repo
         run: |
-          sudo rm /etc/apt/sources.list
-          sudo rm -f /etc/apt/sources.list.d/*
-          sudo apt-get update
+          if [ -e /etc/apt/sources.list ]; then
+            rm /etc/apt/sources.list
+          fi
+          if [ -d /etc/apt/sources.list.d ]; then
+            rm -f /etc/apt/sources.list.d/*
+          fi
+          apt-get update
           ! apt-cache show hugo
       - name: Ensure no Hugo installed
         run: |
           ! type hugo
 
       - name: Add the APT Repo
-        run: echo "deb [signed-by=/etc/apt/keyrings/hugo.gpg] http://localhost:9000 latest main" | sudo tee /etc/apt/sources.list.d/hugo.list
+        run: echo "deb [signed-by=/etc/apt/keyrings/hugo.gpg] http://localhost:9000 latest main" | tee /etc/apt/sources.list.d/hugo.list
       - name: Trust the Key
-        run: sudo cp ${PWD}/signing-key /etc/apt/keyrings/hugo.gpg
+        run: |
+          if [ ! -d /etc/apt/keyrings ]; then
+            mkdir -p /etc/apt/keyrings
+          fi
+          cp ${PWD}/signing-key /etc/apt/keyrings/hugo.gpg
 
       - name: Install Hugo
         run: |
-          python -m http.server 9000 &
+          python3 -m http.server 9000 &
           while ! nc -z localhost 9000; do
               sleep 0.5
           done
-          sudo apt-get update
-          sudo apt-get install -y hugo
+          apt-get update
+          apt-get install -y hugo
       - name: Test running Hugo
         run: hugo version
 

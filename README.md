@@ -1,4 +1,14 @@
+<!-- insert
+---
+title: "Hugo APT Repository"
+type: "_default"
+layout: "single"
+---
+end_insert -->
+<!-- Powered by https://cj.rs/riss -->
+<!-- remove -->
 # Hugo APT Repository
+<!-- end_remove -->
 
 An unofficial [APT][] repository that contains the latest [Hugo][] for [Debian][], [Ubuntu][], and
 other [Debian derivatives][].

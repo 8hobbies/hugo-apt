@@ -1,0 +1,43 @@
+baseurl = "https://hugo-apt.8hob.io"
+DefaultContentLanguage = "en"
+title = "Hugo APT Repository"
+theme = "beautifulhugo"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+disableKinds = ['rss', 'taxonomy']
+enableGitInfo = true
+
+[Params]
+  homeTitle = "Hugo APT Repository" # Set a different text for the header on the home page
+  # subtitle = "Build a beautiful and simple website in minutes"
+  mainSections = ["post","posts"]
+  # logo = "img/avatar-icon.png" # Expecting square dimensions
+  # favicon = "img/favicon.ico"
+  dateFormat = "January 2, 2006"
+  commit = true
+  rss = false
+  comments = false
+  readingTime = false
+  wordCount = false
+  useHLJS = false
+  socialShare = true
+  delayDisqus = true
+  showRelatedPosts = true
+
+[Author]
+  # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
+  name = "8 Hobbies"
+  website = "https://8hob.io"
+  github = "8hobbies/hugo-apt"
+  gitlab = "8hobbies/hugo-apt"
+
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true

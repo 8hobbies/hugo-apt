@@ -66,7 +66,7 @@ limitations under the License.
 [APT]: https://wiki.debian.org/Apt
 [Debian derivatives]: https://www.debian.org/derivatives/
 [Debian]: https://www.debian.org/
-[GitHub Page]: https://pages.github.com/
+[GitHub Pages]: https://pages.github.com/
 [GitHub Workflow]: https://github.com/8hobbies/hugo-apt/blob/master/.github/workflows/pages.yml
 [GitHub]: https://github.com/8hobbies/hugo-apt
 [Hugo release page]: https://github.com/gohugoio/hugo/releases

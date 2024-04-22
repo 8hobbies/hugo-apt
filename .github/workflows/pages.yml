@@ -50,6 +50,9 @@ jobs:
         run: |
           gpg -u 'Hugo APT Repo 8 Hobbies Signing Bot <contact@8hob.io>' -a -s --clearsign --output ${DIST_ROOT_DIR}/InRelease ${DIST_ROOT_DIR}/Release
 
+      - name: Make Public Key available
+        run: mv signing-key _site/
+
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:

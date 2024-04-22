@@ -43,6 +43,9 @@ jobs:
       - name: Generate Debian Repo files
         run: scripts/generate_repo_files.sh
 
+      - name: Configuring signing key
+        run: gpg --import <<< "${{ secrets.SIGNING_KEY }}"
+
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:

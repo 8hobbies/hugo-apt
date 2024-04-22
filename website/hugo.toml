@@ -25,6 +25,7 @@ enableGitInfo = true
   socialShare = true
   delayDisqus = true
   showRelatedPosts = true
+  selfHosted = true
 
 [Author]
   # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")

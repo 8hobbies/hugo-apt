@@ -4,8 +4,8 @@
 
 cd ${DIST_ROOT_DIR}
 
-cd binary-amd64
+cd main/binary-amd64
 apt-ftparchive packages . | gzip --best -c > Packages.gz
-cd ..
+cd ../..
 
 apt-ftparchive release . > Release

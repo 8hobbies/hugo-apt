@@ -33,9 +33,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create the site directory
+      - name: Create the dist root directory
         run: |
-          mkdir _site
+          mkdir -p ${DIST_ROOT_DIR}
 
       - name: Download latest hugo
         run: scripts/download_latest_hugo_deb.sh

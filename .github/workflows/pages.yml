@@ -40,6 +40,9 @@ jobs:
       - name: Download latest hugo
         run: scripts/download_latest_hugo_deb.sh
 
+      - name: Generate Debian Repo files
+        run: scripts/generate_repo_files.sh
+
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:

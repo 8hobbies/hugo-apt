@@ -10,11 +10,17 @@ end_insert -->
 # Hugo APT Repository
 <!-- end_remove -->
 
+[![Build and Deploy Pages](https://github.com/8hobbies/hugo-apt/actions/workflows/pages.yml/badge.svg)](https://github.com/8hobbies/hugo-apt/actions/workflows/pages.yml)
+[![GitLab Mirror](https://img.shields.io/badge/GitLab-mirror-blue?logo=gitlab)](https://gitlab.com/8hobbies/hugo-apt)
+[![](https://img.shields.io/badge/powered%20by-riss-lightgrey)](https://cj.rs/riss)
+
+[Homepage](https://hugo-apt.8hob.io) | [GitHub](https://github.com/8hobbies/hugo-apt)
+
 An unofficial [APT][] repository that contains the latest [Hugo][] for [Debian][], [Ubuntu][], and
 other [Debian derivatives][].
 
-This repository, located at http://hugo-apt.8hob.io, hosts the official extended deb files available
-from the [Hugo release page][]. This repository refreshes daily around 1am UTC time.
+This repository, while unofficial, hosts the official extended deb files available from the [Hugo
+release page][]. This repository refreshes daily around 1am UTC time.
 
 ## Usage
 

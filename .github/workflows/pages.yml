@@ -28,7 +28,7 @@ env:
 jobs:
   build:
     name: Build Pages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
@@ -45,6 +45,11 @@ jobs:
 
       - name: Configuring signing key
         run: gpg --import <<< "${{ secrets.SIGNING_KEY }}"
+
+      - name: Sign Release
+        run: |
+          gpg -u '8 Hobbies Signing Bot <contact@8hob.io>' -a -s --clearsign --output ${DIST_ROOT_DIR}/InRelease ${DIST_ROOT_DIR}/Release
+          rm ${DIST_ROOT_DIR}/Release
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3.0.1

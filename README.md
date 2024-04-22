@@ -27,13 +27,13 @@ release page][]. This repository refreshes daily around 1am UTC time.
 1. Install the repository:
 
 ```bash
-echo 'deb [signed-by=/etc/apt/keyrings/hugo.gpg] http://hugo-apt.8hob.io latest main' | sudo tee /etc/apt/sources.list.d/hugo.list
+echo 'deb [signed-by=/etc/apt/keyrings/hugo.gpg] https://hugo-apt.8hob.io latest main' | sudo tee /etc/apt/sources.list.d/hugo.list
 ```
 
 2. Trust the signing key:
 
 ```bash
-sudo mkdir -p /etc/apt/keyrings && sudo wget -O /etc/apt/keyrings/hugo.gpg http://hugo-apt.8hob.io/signing-key
+sudo mkdir -p /etc/apt/keyrings && sudo wget -O /etc/apt/keyrings/hugo.gpg https://hugo-apt.8hob.io/signing-key
 ```
 
 3. Install the latest official Hugo:

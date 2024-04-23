@@ -2,12 +2,15 @@ baseurl = "https://hugo-apt.8hob.io"
 DefaultContentLanguage = "en"
 title = "Hugo APT Repository"
 theme = "beautifulhugo"
+enableRobotsTXT = true
 pygmentsStyle = "trac"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 disableKinds = ['rss', 'taxonomy']
-enableGitInfo = true
+# Not using git information here, because content/_index.md is generated on the fly and is not
+# tracked by Git.
+enableGitInfo = false
 
 [Params]
   homeTitle = "Hugo APT Repository" # Set a different text for the header on the home page
@@ -16,7 +19,7 @@ enableGitInfo = true
   # logo = "img/avatar-icon.png" # Expecting square dimensions
   # favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
-  commit = true
+  commit = false
   rss = false
   comments = false
   readingTime = false
@@ -42,3 +45,6 @@ enableGitInfo = true
   disableSVG = false
   disableXML = false
   minifyOutput = true
+
+[frontmatter]
+  lastmod = ['lastmod', ':fileModTime', ':default']

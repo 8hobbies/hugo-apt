@@ -36,6 +36,7 @@ enableGitInfo = false
   website = "https://8hob.io"
   github = "8hobbies/hugo-apt"
   gitlab = "8hobbies/hugo-apt"
+  about = "https://8hob.io"
 
 [minify]
   disableCSS = false

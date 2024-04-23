@@ -56,13 +56,13 @@ To report a bug, visit the [issue tracker][]. To send your contribution, open a 
 
 ## License
 
-This is the license of the files that build the repository, not Hugo.
+This license applies to this project, not the Hugo project.
 
 ```
 Copyright 2024 8 Hobbies, LLC <hong@8hobbies.com>
 
 Licensed under the Apache License, Version 2.0(the "License");
-you may not use this file except in compliance with the License.
+you may not use files in this project except in compliance with the License.
 You may obtain a copy of the License at
 
     http://www.apache.org/licenses/LICENSE-2.0
@@ -73,6 +73,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+This repository redistributes Hugo under the same license as the Hugo project. Unless required by
+applicable law or agreed to in writing, this repository distributes Hugo on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See [Hugo's License][] the
+specific language governing permissions and limitations under the License.
 
 [APT]: https://wiki.debian.org/Apt
 [Debian derivatives]: https://www.debian.org/derivatives/
@@ -85,3 +90,4 @@ limitations under the License.
 [Ubuntu]: https://ubuntu.com/
 [issue tracker]: https://github.com/8hobbies/hugo-apt/issues
 [pull request]: https://github.com/8hobbies/hugo-apt/pulls
+[Hugo's License]: https://github.com/gohugoio/hugo/blob/master/LICENSE

@@ -19,12 +19,12 @@ end_insert -->
 An unofficial [APT][] repository that contains the latest [Hugo][] for [Debian][], [Ubuntu][], and
 other [Debian derivatives][].
 
-This repository, while unofficial, hosts the official extended deb files available from the [Hugo
-release page][]. This repository refreshes daily around 1am UTC time.
+This APT repository, while unofficial, hosts the official extended deb files available from the
+[Hugo release page][]. This APT repository refreshes daily around 1am UTC time.
 
 ## Usage
 
-1. Install the repository:
+1. Install the APT repository:
 
 ```bash
 echo 'deb [signed-by=/etc/apt/keyrings/hugo.gpg] https://hugo-apt.8hob.io latest main' | sudo tee /etc/apt/sources.list.d/hugo.list
@@ -44,8 +44,8 @@ sudo apt update && sudo apt install hugo
 
 ## How is this Repository Built?
 
-The scripts that generate the repository are completely available on [GitHub][]. The execution of
-the scripts is defined in a [GitHub Workflow][], which regularly deploys the repository to [GitHub
+The scripts that generate the APT repository are available on [GitHub][]. The execution of the
+scripts is defined in a [GitHub Workflow][], which regularly deploys the APT repository to [GitHub
 Pages][].
 
 ## Contributing
@@ -74,8 +74,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-This repository redistributes Hugo under the same license as the Hugo project. Unless required by
-applicable law or agreed to in writing, this repository distributes Hugo on an "AS IS" BASIS,
+This APT repository redistributes Hugo under the same license as the Hugo project. Unless required
+by applicable law or agreed to in writing, this APT repository distributes Hugo on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See [Hugo's License][] the
 specific language governing permissions and limitations under the License.
 

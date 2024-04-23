@@ -20,7 +20,8 @@ An unofficial [APT][] repository that contains the latest [Hugo][] for [Debian][
 other [Debian derivatives][].
 
 This APT repository, while unofficial, hosts the official extended deb files available from the
-[Hugo release page][]. This APT repository refreshes daily around 1am UTC time.
+[Hugo release page][]. This APT repository refreshes daily around 1am UTC time. It supports [AMD64][]
+and [ARM64][].
 
 ## Usage
 
@@ -79,15 +80,17 @@ by applicable law or agreed to in writing, this APT repository distributes Hugo 
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See [Hugo's License][] the
 specific language governing permissions and limitations under the License.
 
+[AMD64]: https://en.wikipedia.org/wiki/X86-64
 [APT]: https://wiki.debian.org/Apt
+[ARM64]: https://en.wikipedia.org/wiki/AArch64
 [Debian derivatives]: https://www.debian.org/derivatives/
 [Debian]: https://www.debian.org/
 [GitHub Pages]: https://pages.github.com/
 [GitHub Workflow]: https://github.com/8hobbies/hugo-apt/blob/master/.github/workflows/pages.yml
 [GitHub]: https://github.com/8hobbies/hugo-apt
 [Hugo release page]: https://github.com/gohugoio/hugo/releases
+[Hugo's License]: https://github.com/gohugoio/hugo/blob/master/LICENSE
 [Hugo]: https://gohugo.io
 [Ubuntu]: https://ubuntu.com/
 [issue tracker]: https://github.com/8hobbies/hugo-apt/issues
 [pull request]: https://github.com/8hobbies/hugo-apt/pulls
-[Hugo's License]: https://github.com/gohugoio/hugo/blob/master/LICENSE

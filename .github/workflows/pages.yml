@@ -38,9 +38,7 @@ jobs:
 
       - name: Build the site
         working-directory: website
-        run: |
-          git config --global --add safe.directory $GITHUB_WORKSPACE
-          ./build-website.sh
+        run: ./build-website.sh
 
       - name: Upload site
         uses: actions/upload-artifact@v4.3.3

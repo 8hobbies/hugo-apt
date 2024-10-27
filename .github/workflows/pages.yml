@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-24.04
     # Ironically, to avoid cycled self-dependency, use a Hugo installation from a different source
     # here to build the website.
-    container: hugomods/hugo:reg-git-0.136.2
+    container: hugomods/hugo:reg-git-0.136.5
     steps:
       - uses: actions/checkout@v4
         with:

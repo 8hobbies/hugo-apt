@@ -3,6 +3,10 @@
 set -e
 
 latest_hugo_version=$(git ls-remote --tags --sort='v:refname' https://github.com/gohugoio/hugo | tail -1 | cut -d '/' -f 3)
+if [[ $latest_hugo_version == "v0.139.5" ]]; then
+    # 0.139.5 is a technical release, it doesn't change the binaries of 0.139.4.
+    latest_hugo_version="v0.139.4"
+fi
 
 # Download checksum file
 wget -q "https://github.com/gohugoio/hugo/releases/download/${latest_hugo_version}/hugo_${latest_hugo_version:1}_checksums.txt" -O checksums.txt

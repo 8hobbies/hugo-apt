@@ -1,5 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["gitlab>8hobbies/renovate-config#v5"],
-  "schedule": ["on Sunday"]
+  "packageRules": [
+    {
+      "description": "Disallow 0.139.5 since it doesn't contain binaries",
+      "matchPackageNames": ["hugo"],
+      "allowedVersions": "!=0.139.5"
+    }
+  ]
 }

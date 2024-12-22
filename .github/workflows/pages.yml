@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-24.04
     # Ironically, to avoid cycled self-dependency, use a Hugo installation from a different source
     # here to build the website.
-    container: hugomods/hugo:reg-git-0.139.5
+    container: hugomods/hugo:reg-git-0.140.0
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,7 +41,7 @@ jobs:
         run: ./build-website.sh
 
       - name: Upload site
-        uses: actions/upload-artifact@v4.4.3
+        uses: actions/upload-artifact@v4.5.0
         with:
           name: website
           path: website/public

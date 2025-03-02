@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-24.04
     # Ironically, to avoid cycled self-dependency, use a Hugo installation from a different source
     # here to build the website.
-    container: hugomods/hugo:reg-git-0.143.1
+    container: hugomods/hugo:reg-git-0.144.2
     steps:
       - uses: actions/checkout@v4
         with:
@@ -57,7 +57,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4.1.8
+      - uses: actions/download-artifact@v4.1.9
         with:
           name: website
           path: _site
@@ -100,7 +100,7 @@ jobs:
       # We don't build the website with the Hugo installation from this step, because we intend to
       # test with the final version of the whole repository in case any website building part
       # interferes with the repo.
-      - uses: actions/download-artifact@v4.1.8
+      - uses: actions/download-artifact@v4.1.9
         with:
           name: github-pages
       - name: Decompress Artifact

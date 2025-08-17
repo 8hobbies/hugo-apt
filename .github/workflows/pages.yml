@@ -83,7 +83,7 @@ jobs:
         run: mv signing-key _site/
 
       - name: Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v3.0.1
+        uses: actions/upload-pages-artifact@v4.0.0
         with:
           path: _site
 

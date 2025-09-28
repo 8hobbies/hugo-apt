@@ -28,7 +28,7 @@ and [ARM64][].
 1. Install the APT repository:
 
 ```bash
-echo 'deb [signed-by=/etc/apt/keyrings/hugo.gpg] https://hugo-apt.8hob.io latest main' | sudo tee /etc/apt/sources.list.d/hugo.list
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/hugo.gpg] https://hugo-apt.8hob.io latest main" | sudo tee /etc/apt/sources.list.d/hugo.list
 sudo chmod 644 /etc/apt/sources.list.d/hugo.list
 ```
 

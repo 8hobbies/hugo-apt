@@ -45,6 +45,22 @@ sudo chmod 644 /etc/apt/keyrings/hugo.gpg
 sudo apt update && sudo apt install hugo
 ```
 
+## Uninstalling
+
+To uninstall Hugo and remove associated repository files:
+
+```bash
+sudo apt purge hugo
+sudo rm /etc/apt/sources.list.d/hugo.list
+sudo rm /etc/apt/keyrings/hugo.gpg
+sudo rm -f /etc/apt/preferences.d/hugo
+```
+
+You can safely ignore warnings such as:
+
+> dpkg: warning: while removing hugo, directory '/usr/local' not empty so not removed
+> dpkg: warning: while removing hugo, directory '/usr/local/bin' not empty so not removed
+
 ## How is this Repository Built?
 
 The scripts that generate the APT repository are available on [GitHub][]. The execution of the
@@ -62,7 +78,7 @@ To report a bug, visit the [issue tracker][]. To send your contribution, open a 
 This license applies to this project, not the Hugo project.
 
 ```
-Copyright 2024 8 Hobbies, LLC <hong@8hobbies.com>
+Copyright 2024--2025 8 Hobbies, LLC <hong@8hobbies.com>
 
 Licensed under the Apache License, Version 2.0(the "License");
 you may not use files in this project except in compliance with the License.

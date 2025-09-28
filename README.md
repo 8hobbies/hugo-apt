@@ -45,6 +45,18 @@ sudo chmod 644 /etc/apt/keyrings/hugo.gpg
 sudo apt update && sudo apt install hugo
 ```
 
+<h3 id="esm">With Ubuntu Expanded Security Maintenance (ESM)</h3>
+With Ubuntu, if ESM is enabled, you must prioritize the third-party Hugo repository to ensure successful installation.
+
+``` bash
+sudo tee /etc/apt/preferences.d/hugo <<EOF
+Package: hugo
+Pin: origin "hugo-apt.8hob.io"
+Pin-Priority: 520
+EOF
+sudo chmod 644 /etc/apt/preferences.d/hugo
+```
+
 ## Uninstalling
 
 To uninstall Hugo and remove associated repository files:

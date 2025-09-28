@@ -29,12 +29,14 @@ and [ARM64][].
 
 ```bash
 echo 'deb [signed-by=/etc/apt/keyrings/hugo.gpg] https://hugo-apt.8hob.io latest main' | sudo tee /etc/apt/sources.list.d/hugo.list
+sudo chmod 644 /etc/apt/sources.list.d/hugo.list
 ```
 
 2. Trust the signing key:
 
 ```bash
 sudo mkdir -p /etc/apt/keyrings && sudo wget -O /etc/apt/keyrings/hugo.gpg https://hugo-apt.8hob.io/signing-key
+sudo chmod 644 /etc/apt/keyrings/hugo.gpg
 ```
 
 3. Install the latest official Hugo:

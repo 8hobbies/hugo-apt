@@ -41,7 +41,7 @@ jobs:
         run: ./build-website.sh
 
       - name: Upload site
-        uses: actions/upload-artifact@v5.0.0
+        uses: actions/upload-artifact@v6.0.0
         with:
           name: website
           path: website/public
@@ -57,7 +57,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v6.0.0
+      - uses: actions/download-artifact@v7.0.0
         with:
           name: website
           path: _site
@@ -100,7 +100,7 @@ jobs:
       # We don't build the website with the Hugo installation from this step, because we intend to
       # test with the final version of the whole repository in case any website building part
       # interferes with the repo.
-      - uses: actions/download-artifact@v6.0.0
+      - uses: actions/download-artifact@v7.0.0
         with:
           name: github-pages
       - name: Decompress Artifact

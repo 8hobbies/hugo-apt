@@ -32,7 +32,7 @@ jobs:
     # here to build the website.
     container: hugomods/hugo:reg-git-0.162.1
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: true
 
@@ -55,7 +55,7 @@ jobs:
       DIST_ROOT_DIR: _site/dists/latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: actions/download-artifact@v8.0.1
         with:
